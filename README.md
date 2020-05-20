@@ -45,11 +45,11 @@ module.exports = {
 
 `npx buidler typechain` - Compiles and generates Typescript typings for your contracts.
 
-Example Waffle + Ethers test that uses typedefs for contracts:
+Example for how to write a Waffle test uses typedefs for contracts:
 ```ts
-import { ethers } from "@nomiclabs/buidler";
 import chai from "chai";
-import { deployContract, getWallets, solidity } from "ethereum-waffle";
+import { deployContract, solidity } from "ethereum-waffle";
+import { waffle } from "@nomiclabs/buidler";
 
 import CounterArtifact from "../build/Counter.json";
 import { Counter } from "../typechain/Counter"
@@ -58,8 +58,8 @@ chai.use(solidity);
 const { expect } = chai;
 
 describe("Counter", () => {
-  const provider = ethers.provider;
-  let [wallet] = getWallets(provider);
+  const provider = waffle.provider;
+  let [wallet] = provider.getWallets();
 
   // use contract type
   let counter: Counter;
