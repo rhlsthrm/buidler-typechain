@@ -117,4 +117,4 @@ See this [starter kit](https://github.com/rhlsthrm/typescript-solidity-dev-start
 ## TypeScript support
 
 You need to add this to your `tsconfig.json`'s `files` array:
-`"node_modules/hardhat-typechain/src/type-extensions.d.ts"`
+`"node_modules/hardhat-typechain/src/type-extensions.ts"`

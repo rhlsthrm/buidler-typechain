@@ -18,11 +18,9 @@
   "scripts": {
     "lint:fix": "prettier --write 'src/**/*.{js,ts}' 'test/**/*.{js,ts}' && tslint --fix --config tslint.json --project tsconfig.json",
     "lint": "tslint --config tslint.json --project tsconfig.json",
-    "test": "mocha --exit",
+    "test": "mocha --exit --recursive 'test/**/*.test.ts'",
     "build": "tsc",
-    "buidl": "tsc",
-    "watch": "tsc -w",
-    "prepare": "npm run build"
+    "watch": "tsc -w"
   },
   "files": [
     "dist/",

@@ -63,3 +63,5 @@ typings/
 test/hardhat-project/artifacts-dir/
 test/hardhat-project/cache/
 testdir/
+# environment variables
+.env
