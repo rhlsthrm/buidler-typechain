@@ -1,7 +1,11 @@
 import { TypechainConfig } from "./types";
 
 declare module "hardhat/types" {
-  interface HardhatConfig {
+  interface HardhatUserConfig {
     typechain?: TypechainConfig;
+  }
+
+  interface HardhatConfig {
+    typechain: TypechainConfig;
   }
 }
