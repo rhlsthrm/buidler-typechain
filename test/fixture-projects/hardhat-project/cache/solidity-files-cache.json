@@ -1,0 +1,106 @@
+{
+  "_format": "hh-sol-cache-1",
+  "files": {
+    "/Users/rahul/dev/projects/buidler/buidler-typechain/test/fixture-projects/hardhat-project/contracts/lib/SafeMath.sol": {
+      "lastModificationDate": 1603468227033,
+      "sourceName": "contracts/lib/SafeMath.sol",
+      "solcConfig": {
+        "version": "0.7.3",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "0.7.3"
+      ],
+      "artifacts": [
+        "SafeMath"
+      ]
+    },
+    "/Users/rahul/dev/projects/buidler/buidler-typechain/test/fixture-projects/hardhat-project/contracts/TestContract.sol": {
+      "lastModificationDate": 1603468174518,
+      "sourceName": "contracts/TestContract.sol",
+      "solcConfig": {
+        "version": "0.7.3",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./TestContract1.sol"
+      ],
+      "versionPragmas": [
+        "0.7.3"
+      ],
+      "artifacts": [
+        "TestContract"
+      ]
+    },
+    "/Users/rahul/dev/projects/buidler/buidler-typechain/test/fixture-projects/hardhat-project/contracts/TestContract1.sol": {
+      "lastModificationDate": 1603468178385,
+      "sourceName": "contracts/TestContract1.sol",
+      "solcConfig": {
+        "version": "0.7.3",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "0.7.3"
+      ],
+      "artifacts": [
+        "TestContract1"
+      ]
+    }
+  }
+}

@@ -1,4 +1,4 @@
-pragma solidity 0.6.8;
+pragma solidity 0.7.3;
 
 // import "./libraries/SafeMath.sol";
 import "./TestContract1.sol";

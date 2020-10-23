@@ -10,7 +10,7 @@ import { getDefaultTypechainConfig } from "./config";
 task(
   "typechain",
   "Generate Typechain typings for compiled contracts"
-).setAction(async ({}, { config, run }) => {
+).setAction(async ({}, { config, run, artifacts }) => {
   const typechain = getDefaultTypechainConfig(config);
   const typechainTargets = ["ethers-v5", "web3-v1", "truffle-v5"];
   if (!typechainTargets.includes(typechain.target as string)) {
@@ -32,7 +32,7 @@ task(
     new TypeChain({
       cwd,
       rawConfig: {
-        files: `${config.paths.artifacts}/**/*.json`,
+        files: `${config.paths.artifacts}/!(build-info)/*/!(*.dbg).json`,
         outDir: typechain.outDir,
         target: typechain.target as string,
       },
