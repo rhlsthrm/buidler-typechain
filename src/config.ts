@@ -10,5 +10,8 @@ export function getDefaultTypechainConfig(
     target: "ethers-v5",
   };
 
-  return { ...defaultConfig, ...config.typechain };
+  return {
+    ...defaultConfig,
+    ...{ ...config.typechain, target: config.typechain?.target as any },
+  };
 }

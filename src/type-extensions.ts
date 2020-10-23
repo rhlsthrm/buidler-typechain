@@ -1,11 +1,21 @@
-import { TypechainConfig } from "./types";
+import "hardhat/types/config";
 
-declare module "hardhat/types" {
-  interface HardhatUserConfig {
-    typechain?: TypechainConfig;
+declare module "hardhat/types/config" {
+  export interface HardhatUserConfig {
+    typechain?: {
+      outDir?: string;
+      target?: string;
+      onCompile?: boolean;
+      onTest?: boolean;
+    };
   }
 
-  interface HardhatConfig {
-    typechain: TypechainConfig;
+  export interface HardhatConfig {
+    typechain: {
+      outDir: string;
+      target: string;
+      onCompile: boolean;
+      onTest: boolean;
+    };
   }
 }
