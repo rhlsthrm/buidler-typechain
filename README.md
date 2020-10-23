@@ -1,5 +1,3 @@
-[![hardhat](https://hardhat.org/hardhat-plugin-badge.svg?1)](https://hardhat.org)
-
 # hardhat-typechain
 
 _Updated for Hardhat!_
