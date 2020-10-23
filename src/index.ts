@@ -32,7 +32,7 @@ task(
     new TypeChain({
       cwd,
       rawConfig: {
-        files: `${config.paths.artifacts}/!(build-info)/*/!(*.dbg).json`,
+        files: `${config.paths.artifacts}/!(build-info)/**/+([a-zA-Z0-9]).json`,
         outDir: typechain.outDir,
         target: typechain.target as string,
       },
