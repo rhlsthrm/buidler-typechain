@@ -13,6 +13,6 @@ module.exports = {
   },
   typechain: {
     outDir: "../../testdir",
-    target: "ethers-v4",
+    target: "ethers-v5",
   },
 };
