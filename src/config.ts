@@ -12,6 +12,6 @@ export function getDefaultTypechainConfig(
 
   return {
     ...defaultConfig,
-    ...{ ...config.typechain, target: config.typechain?.target as any },
+    ...config.typechain,
   };
 }

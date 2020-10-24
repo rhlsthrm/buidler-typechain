@@ -4,7 +4,7 @@ _Updated for Hardhat!_
 
 _Now supports Ethers v5 and Truffle v5!_
 
-_Updated for TypeChain v2!_
+_Updated for TypeChain v3!_
 
 Add [Typechain](https://www.github.com/ethereum-ts/TypeChain) tasks to your hardhat project!
 
@@ -23,7 +23,13 @@ npm i @typechain/ethers-v4 @typechain/ethers-v5 @typechain/truffle-v5 @typechain
 And add the following statement to your `hardhat.config.js`:
 
 ```js
-usePlugin("hardhat-typechain");
+require("hardhat-typechain");
+```
+
+Or, if you are using TypeScript, add this to your `hardhat.config.ts`:
+
+```js
+import "hardhat-typechain";
 ```
 
 ## Tasks
@@ -56,15 +62,14 @@ module.exports = {
 Example Waffle + Ethers test that uses typedefs for contracts:
 
 ```ts
-import { ethers } from "@nomiclabs/hardhat";
+import { ethers, waffle } from "@nomiclabs/hardhat";
 import chai from "chai";
 import { Wallet } from "ethers";
-import { deployContract, solidity } from "ethereum-waffle";
 
 import CounterArtifact from "../artifacts/Counter.json";
 import { Counter } from "../typechain/Counter";
 
-chai.use(solidity);
+const { deployContract } = waffle;
 const { expect } = chai;
 
 describe("Counter", () => {
@@ -113,8 +118,3 @@ describe("Counter", () => {
 ```
 
 See this [starter kit](https://github.com/rhlsthrm/typescript-solidity-dev-starter-kit) for a full example!
-
-## TypeScript support
-
-You need to add this to your `tsconfig.json`'s `files` array:
-`"node_modules/hardhat-typechain/src/type-extensions.ts"`
