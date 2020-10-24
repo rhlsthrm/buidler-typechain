@@ -1,32 +1,40 @@
 import fsExtra from "fs-extra";
 import { TASK_CLEAN, TASK_COMPILE } from "hardhat/builtin-tasks/task-names";
-import { task } from "hardhat/config";
+import { extendConfig, task } from "hardhat/config";
 import { HardhatPluginError } from "hardhat/plugins";
-import { tsGenerator } from "ts-generator";
-import { TypeChain } from "typechain/dist/TypeChain";
 
 import { getDefaultTypechainConfig } from "./config";
+import "./type-extensions";
 
-task(
-  "typechain",
-  "Generate Typechain typings for compiled contracts"
-).setAction(async ({}, { config, run, artifacts }) => {
-  const typechain = getDefaultTypechainConfig(config);
+extendConfig((config) => {
+  config.typechain = getDefaultTypechainConfig(config);
+
   const typechainTargets = ["ethers-v5", "web3-v1", "truffle-v5"];
-  if (!typechainTargets.includes(typechain.target as string)) {
+  if (!typechainTargets.includes(config.typechain.target as string)) {
     throw new HardhatPluginError(
       "Typechain",
       "Invalid Typechain target, please provide via hardhat.config.js (typechain.target)"
     );
   }
+});
 
-  await run(TASK_COMPILE);
+task(
+  "typechain",
+  "Generate Typechain typings for compiled contracts"
+).setAction(async ({}, { config, run, artifacts }) => {
+  const typechain = config.typechain;
+
+  await run(TASK_COMPILE, { quiet: true });
 
   console.log(
     `Creating Typechain artifacts in directory ${typechain.outDir} for target ${typechain.target}`
   );
 
   const cwd = process.cwd();
+
+  const { TypeChain } = await import("typechain/dist/TypeChain");
+  const { tsGenerator } = await import("ts-generator");
+
   await tsGenerator(
     { cwd },
     new TypeChain({
@@ -45,11 +53,15 @@ task(
 task(
   TASK_CLEAN,
   "Clears the cache and deletes all artifacts",
-  async (_, { config }) => {
-    await fsExtra.remove(config.paths.cache);
-    await fsExtra.remove(config.paths.artifacts);
-    if (config.typechain && config.typechain.outDir) {
+  async ({ global }: { global: boolean }, { config }, runSuper) => {
+    if (global) {
+      return;
+    }
+
+    if (await fsExtra.pathExists(config.typechain.outDir)) {
       await fsExtra.remove(config.typechain.outDir);
     }
+
+    await runSuper();
   }
 );
