@@ -2,8 +2,6 @@ import fsExtra from "fs-extra";
 import { TASK_CLEAN, TASK_COMPILE } from "hardhat/builtin-tasks/task-names";
 import { extendConfig, task } from "hardhat/config";
 import { HardhatPluginError } from "hardhat/plugins";
-import { tsGenerator } from "ts-generator";
-import { TypeChain } from "typechain/dist/TypeChain";
 
 import { getDefaultTypechainConfig } from "./config";
 import "./type-extensions";
@@ -33,6 +31,10 @@ task(
   );
 
   const cwd = process.cwd();
+
+  const { TypeChain } = await import("typechain/dist/TypeChain");
+  const { tsGenerator } = await import("ts-generator");
+
   await tsGenerator(
     { cwd },
     new TypeChain({
