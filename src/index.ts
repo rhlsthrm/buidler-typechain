@@ -24,7 +24,7 @@ task(
 ).setAction(async ({}, { config, run, artifacts }) => {
   const typechain = config.typechain;
 
-  await run(TASK_COMPILE);
+  await run(TASK_COMPILE, { quiet: true });
 
   console.log(
     `Creating Typechain artifacts in directory ${typechain.outDir} for target ${typechain.target}`
