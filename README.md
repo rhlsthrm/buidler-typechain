@@ -1,5 +1,7 @@
 # hardhat-typechain
 
+_Zero-config Typechain support_
+
 _Updated for Hardhat!_
 
 _Now supports Ethers v5 and Truffle v5!_
@@ -17,7 +19,7 @@ Add [Typechain](https://www.github.com/ethereum-ts/TypeChain) tasks to your hard
 ```bash
 npm i hardhat-typechain typechain ts-generator
 # choose plugin for required target, only need to install one of these
-npm i @typechain/ethers-v4 @typechain/ethers-v5 @typechain/truffle-v5 @typechain/web3-v1 @typechain/truffle-v4
+npm i @typechain/ethers-v5 @typechain/truffle-v5 @typechain/web3-v1
 ```
 
 And add the following statement to your `hardhat.config.js`:
@@ -32,7 +34,15 @@ Or, if you are using TypeScript, add this to your `hardhat.config.ts`:
 import "hardhat-typechain";
 ```
 
+## Zero Config Usage
+
+Run the _compile_ task as normal, and Typechain artifacts will automatically be generated in a root directory called `typechain`. Further configuration options are detailed below.
+
 ## Tasks
+
+This plugin overrides the _compile_ task and automatically generates new Typechain artifacts on each compilation.
+
+There is an optional flag `--no-typechain` which can be passed in to skip Typechain compilation.
 
 This plugin adds the _typechain_ task to hardhat:
 
@@ -57,7 +67,7 @@ module.exports = {
 
 ## Usage
 
-`npx hardhat typechain` - Compiles and generates Typescript typings for your contracts.
+`npx hardhat compile` - Compiles and generates Typescript typings for your contracts.
 
 Example Waffle + Ethers test that uses typedefs for contracts:
 
