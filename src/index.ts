@@ -1,9 +1,5 @@
 import fsExtra from "fs-extra";
-import {
-  TASK_CLEAN,
-  TASK_COMPILE,
-  TASK_COMPILE_SOLIDITY,
-} from "hardhat/builtin-tasks/task-names";
+import { TASK_CLEAN, TASK_COMPILE } from "hardhat/builtin-tasks/task-names";
 import { extendConfig, task } from "hardhat/config";
 import { HardhatPluginError } from "hardhat/plugins";
 
