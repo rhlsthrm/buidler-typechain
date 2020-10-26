@@ -35,7 +35,6 @@ task(TASK_COMPILE, "Compiles the entire project, building all artifacts")
       }
 
       await runSuper();
-      console.log("noTypechain: ", noTypechain);
       if (noTypechain) {
         return;
       }
