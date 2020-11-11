@@ -29,7 +29,7 @@
     "README.md"
   ],
   "devDependencies": {
-    "@typechain/ethers-v5": "^2.0.0",
+    "@typechain/ethers-v5": "^4.0.0",
     "@typechain/truffle-v5": "^2.0.2",
     "@typechain/web3-v1": "^1.0.0",
     "@types/chai": "^4.2.14",
