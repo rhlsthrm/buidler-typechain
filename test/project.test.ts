@@ -4,7 +4,7 @@ import fs from "fs";
 
 import { useEnvironment } from "./helpers";
 
-describe("Integration tests examples", function () {
+describe("Integration tests", function () {
   describe("Happy case", function () {
     this.timeout(120_000);
     useEnvironment("hardhat-project");
