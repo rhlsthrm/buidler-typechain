@@ -1,6 +1,6 @@
 {
   "name": "hardhat-typechain",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "description": "Hardhat TypeScript plugin boilerplate",
   "repository": "github:rhlsthrm/hardhat-typechain.git",
   "author": "Rahul Sethuram",
