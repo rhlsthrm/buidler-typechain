@@ -1,3 +1,7 @@
+Announcement
+
+This project has been absorbed into the mainline Typechain package! Please see this repo for info: https://github.com/ethereum-ts/TypeChain/tree/master/packages/hardhat. The new package can be installed as `@typechain/hardhat`, all other usage is fully backwards compatible!
+
 # hardhat-typechain
 
 _Zero-config Typechain support_
